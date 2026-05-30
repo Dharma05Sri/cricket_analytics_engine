@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstraForge | Apex Cricket OS</title>
+    <title>Cricket Chronicles | Apex Arena</title>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* 1. CORE & CSS VARIABLES (Future-Proof Theme Engine) */
         :root {
-            --bg-dark: #030712;
-            --panel-bg: rgba(15, 23, 42, 0.6);
-            --neon-blue: #00C9FF;
-            --neon-green: #92FE9D;
-            --neon-red: #ff4b4b;
-            --neon-gold: #FCD34D;
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
+            --bg-dark: #030712; --panel-bg: rgba(15, 23, 42, 0.6);
+            --neon-blue: #00C9FF; --neon-green: #92FE9D;
+            --neon-red: #ff4b4b; --neon-gold: #FCD34D;
+            --text-main: #F8FAFC; --text-muted: #94A3B8;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background-color: var(--bg-dark);
             background-image: radial-gradient(circle at 50% 0%, #111827 0%, var(--bg-dark) 100%);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            padding: 15px;
-            min-height: 100vh;
-            overflow-x: hidden;
+            color: var(--text-main); font-family: 'Inter', sans-serif;
+            padding: 15px; min-height: 100vh; overflow-x: hidden;
         }
-
-        /* 2. TYPOGRAPHY & HEADER */
         .header-container { text-align: center; margin-bottom: 25px; }
         .title-text {
             font-family: 'Rajdhani', sans-serif; font-size: 2.5rem; font-weight: 900;
@@ -43,22 +32,14 @@
             display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem;
             background: rgba(146, 254, 157, 0.1); color: var(--neon-green); border: 1px solid var(--neon-green);
         }
-
-        /* 3. GLASSMORPHISM & 3D LAYOUT */
         .glass-panel {
             background: var(--panel-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px;
-            padding: 20px; margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 20px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             transition: transform 0.4s ease, border-color 0.4s ease;
             transform-style: preserve-3d; perspective: 1000px;
         }
-        .glass-panel:hover { transform: translateY(-3px) rotateX(2deg); border-color: rgba(255, 255, 255, 0.2); }
-
-        /* 4. HOLOGRAPHIC SEARCH ENGINE */
         .search-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
-        @media(min-width: 768px) { .search-grid { grid-template-columns: 1fr 1fr; } }
-        
         .search-input {
             width: 100%; padding: 15px; border-radius: 12px;
             background: rgba(0, 0, 0, 0.5); color: var(--text-main);
@@ -68,56 +49,47 @@
         }
         #p1-search:focus { box-shadow: 0 0 20px rgba(0, 201, 255, 0.4); border-color: var(--neon-blue); }
         #p2-search:focus { box-shadow: 0 0 20px rgba(255, 75, 75, 0.4); border-color: var(--neon-red); }
-
-        /* 5. POWER METERS */
         .meter-container { margin: 15px 0; }
         .meter-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px; font-weight: 600; }
         .meter-bg { background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; overflow: hidden; }
-        .meter-fill { height: 100%; width: 0%; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+        .meter-fill { height: 100%; width: 0%; transition: width 1s ease; }
         #meter-1 { background: linear-gradient(90deg, #0055ff, var(--neon-blue)); }
         #meter-2 { background: linear-gradient(90deg, #aa0000, var(--neon-red)); }
-
-        /* 6. DATA GRIDS */
         .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px; }
         .stat-box { background: rgba(0,0,0,0.4); padding: 12px 5px; border-radius: 8px; text-align: center; }
         .stat-val { font-family: 'Rajdhani', sans-serif; font-size: 1.4rem; font-weight: 900; }
         .stat-lbl { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; }
-
-        /* 7. AI TERMINAL */
         .ai-terminal {
             background: rgba(16, 185, 129, 0.05); border-left: 4px solid var(--neon-green);
-            padding: 15px; border-radius: 8px; font-size: 0.95rem; line-height: 1.5;
-            font-family: 'Inter', sans-serif; display: none; /* Hidden until simulation runs */
+            padding: 15px; border-radius: 8px; font-size: 0.95rem; line-height: 1.5; display: none;
         }
     </style>
 </head>
 <body>
 
     <div class="header-container">
-        <h1 class="title-text">ASTRAFORGE OS</h1>
+        <h1 class="title-text">CRICKET CHRONICLES</h1>
         <div class="status-badge" id="db-status">Initializing Database...</div>
     </div>
 
     <div class="search-grid">
         <div>
-            <label style="color: var(--neon-blue); font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">🟦 PLAYER 1</label>
-            <input type="text" id="p1-search" class="search-input" placeholder="Initiate Search..." list="player-list">
+            <label style="color: var(--neon-blue); font-size: 0.8rem; font-weight: bold;">🟦 PLAYER 1</label>
+            <input type="text" id="p1-search" class="search-input" placeholder="Select Player 1..." list="player-list">
         </div>
         <div>
-            <label style="color: var(--neon-red); font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">🟥 PLAYER 2</label>
-            <input type="text" id="p2-search" class="search-input" placeholder="Initiate Search..." list="player-list">
+            <label style="color: var(--neon-red); font-size: 0.8rem; font-weight: bold;">🟥 PLAYER 2</label>
+            <input type="text" id="p2-search" class="search-input" placeholder="Select Player 2..." list="player-list">
         </div>
         <datalist id="player-list"></datalist>
     </div>
 
     <div class="glass-panel" style="border-top: 2px solid var(--neon-gold);">
-        <h3 style="font-family: 'Rajdhani'; color: var(--neon-gold); text-align: center; font-size: 1.5rem;">⚡ COMBAT POWER INDEX</h3>
-        
+        <h3 style="font-family: 'Rajdhani'; color: var(--neon-gold); text-align: center;">⚡ COMBAT POWER INDEX</h3>
         <div class="meter-container">
             <div class="meter-label"><span id="name-1">Player 1</span><span id="pow-1">0/100</span></div>
             <div class="meter-bg"><div class="meter-fill" id="meter-1"></div></div>
         </div>
-        
         <div class="meter-container">
             <div class="meter-label"><span id="name-2">Player 2</span><span id="pow-2">0/100</span></div>
             <div class="meter-bg"><div class="meter-fill" id="meter-2"></div></div>
@@ -125,25 +97,23 @@
     </div>
 
     <div class="glass-panel" id="stats-panel" style="display: none;">
-        <h3 style="font-family: 'Rajdhani'; color: var(--text-main); margin-bottom: 10px;">📊 TELEMETRY MATRIX</h3>
-        
+        <h3 style="font-family: 'Rajdhani'; margin-bottom: 10px;">📊 TELEMETRY MATRIX</h3>
         <div style="border-left: 3px solid var(--neon-blue); padding-left: 10px; margin-bottom: 20px;">
             <div style="font-size: 0.85rem; color: var(--neon-blue); font-weight: bold;" id="role-1">ROLE</div>
             <div class="stat-grid">
                 <div class="stat-box"><div class="stat-val" style="color: var(--neon-blue);" id="r-1">0</div><div class="stat-lbl">Runs</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="a-1">0</div><div class="stat-lbl">Avg</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="w-1">0</div><div class="stat-lbl">Wkts</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="e-1">0</div><div class="stat-lbl">Econ</div></div>
+                <div class="stat-box"><div class="stat-val" id="a-1">0</div><div class="stat-lbl">Avg</div></div>
+                <div class="stat-box"><div class="stat-val" id="w-1">0</div><div class="stat-lbl">Wkts</div></div>
+                <div class="stat-box"><div class="stat-val" id="e-1">0</div><div class="stat-lbl">Econ</div></div>
             </div>
         </div>
-
         <div style="border-left: 3px solid var(--neon-red); padding-left: 10px;">
             <div style="font-size: 0.85rem; color: var(--neon-red); font-weight: bold;" id="role-2">ROLE</div>
             <div class="stat-grid">
                 <div class="stat-box"><div class="stat-val" style="color: var(--neon-red);" id="r-2">0</div><div class="stat-lbl">Runs</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="a-2">0</div><div class="stat-lbl">Avg</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="w-2">0</div><div class="stat-lbl">Wkts</div></div>
-                <div class="stat-box"><div class="stat-val" style="color: var(--text-main);" id="e-2">0</div><div class="stat-lbl">Econ</div></div>
+                <div class="stat-box"><div class="stat-val" id="a-2">0</div><div class="stat-lbl">Avg</div></div>
+                <div class="stat-box"><div class="stat-val" id="w-2">0</div><div class="stat-lbl">Wkts</div></div>
+                <div class="stat-box"><div class="stat-val" id="e-2">0</div><div class="stat-lbl">Econ</div></div>
             </div>
         </div>
     </div>
@@ -159,11 +129,10 @@
 
     <script>
         let globalDatabase = {};
+        let lowerCaseDB = {};
         let radarChartInstance = null;
-        let selectedP1 = null;
-        let selectedP2 = null;
+        let selectedP1 = null; let selectedP2 = null;
 
-        // 1. INITIALIZE & FETCH (Scales to 4000+ automatically)
         async function fetchDatabase() {
             try {
                 const response = await fetch('database.json');
@@ -173,60 +142,96 @@
                 const dataList = document.getElementById('player-list');
                 const playerCount = Object.keys(globalDatabase).length;
                 
-                // Dynamically populate search bar
+                // Populate dropdown and build lowercase index for searching
                 for (let player in globalDatabase) {
+                    lowerCaseDB[player.toLowerCase()] = { name: player, data: globalDatabase[player] };
                     let option = document.createElement('option');
                     option.value = player;
                     dataList.appendChild(option);
                 }
 
-                document.getElementById('db-status').innerText = `● SYSTEM ONLINE : ${playerCount} PROFILES LOADED`;
-                document.getElementById('db-status').style.color = "var(--neon-green)";
-                
-                // Add smart event listeners to inputs
+                document.getElementById('db-status').innerText = `● SYSTEM ONLINE : ${playerCount} PLAYERS LOADED`;
                 setupEventListeners();
-
             } catch (error) {
-                document.getElementById('db-status').innerText = "⚠️ ERROR: database.json missing";
+                document.getElementById('db-status').innerText = "⚠️ ERROR: database.json is broken or missing commas.";
                 document.getElementById('db-status').style.color = "var(--neon-red)";
-                document.getElementById('db-status').style.borderColor = "var(--neon-red)";
             }
         }
 
-        // 2. EVENT LISTENERS (Triggers only when a full valid name is typed)
         function setupEventListeners() {
             const input1 = document.getElementById('p1-search');
             const input2 = document.getElementById('p2-search');
 
             input1.addEventListener('input', (e) => {
-                if (globalDatabase[e.target.value]) {
-                    selectedP1 = e.target.value;
-                    updateUI(1, selectedP1);
-                    checkMasterSystems();
+                const searchVal = e.target.value.toLowerCase();
+                if (lowerCaseDB[searchVal]) {
+                    selectedP1 = lowerCaseDB[searchVal].name;
+                    updateUI(1, selectedP1); checkMasterSystems();
                 }
             });
 
             input2.addEventListener('input', (e) => {
-                if (globalDatabase[e.target.value]) {
-                    selectedP2 = e.target.value;
-                    updateUI(2, selectedP2);
-                    checkMasterSystems();
+                const searchVal = e.target.value.toLowerCase();
+                if (lowerCaseDB[searchVal]) {
+                    selectedP2 = lowerCaseDB[searchVal].name;
+                    updateUI(2, selectedP2); checkMasterSystems();
                 }
             });
         }
 
-        // 3. DYNAMIC UI UPDATER (Handles missing stats gracefully)
-        function updateUI(playerNum, playerName) {
+        function updateUI(num, playerName) {
             const data = globalDatabase[playerName];
-            
-            document.getElementById(`name-${playerNum}`).innerText = playerName;
-            document.getElementById(`pow-${playerNum}`).innerText = (data.Power || 0) + "/100";
-            document.getElementById(`meter-${playerNum}`).style.width = (data.Power || 0) + "%";
-            
-            document.getElementById(`role-${playerNum}`).innerText = (data.Role || "UNKNOWN").toUpperCase();
-            document.getElementById(`r-${playerNum}`).innerText = data.Runs || 0;
-            document.getElementById(`a-${playerNum}`).innerText = data.Average || 0;
-            document.getElementById(`w-${playerNum}`).innerText = data.Wickets || 0;
-            document.getElementById(`e-${playerNum}`).innerText = data.Economy || 0;
+            document.getElementById(`name-${num}`).innerText = playerName;
+            document.getElementById(`pow-${num}`).innerText = (data.Power || 0) + "/100";
+            document.getElementById(`meter-${num}`).style.width = (data.Power || 0) + "%";
+            document.getElementById(`role-${num}`).innerText = (data.Role || "UNKNOWN").toUpperCase();
+            document.getElementById(`r-${num}`).innerText = data.Runs || 0;
+            document.getElementById(`a-${num}`).innerText = data.Average || 0;
+            document.getElementById(`w-${num}`).innerText = data.Wickets || 0;
+            document.getElementById(`e-${num}`).innerText = data.Economy || 0;
+            document.getElementById('stats-panel').style.display = 'block';
+        }
 
-            document.getElementById
+        function checkMasterSystems() {
+            if (selectedP1 && selectedP2) {
+                const d1 = globalDatabase[selectedP1]; const d2 = globalDatabase[selectedP2];
+                renderRadar(selectedP1, d1, selectedP2, d2); runAI(selectedP1, d1, selectedP2, d2);
+            }
+        }
+
+        function renderRadar(p1, d1, p2, d2) {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            const b_rate_1 = Math.min(100, ((d1.Wickets || 0) / 5) + Math.max(0, (5 - (d1.Economy || 5)) * 10));
+            const b_rate_2 = Math.min(100, ((d2.Wickets || 0) / 5) + Math.max(0, (5 - (d2.Economy || 5)) * 10));
+
+            const data = {
+                labels: ['Batting Avg', 'Strike Rate', 'Bowling Matrix', 'Power Index'],
+                datasets: [
+                    { label: p1, data: [d1.Average || 0, d1.StrikeRate || 0, b_rate_1, d1.Power || 0], backgroundColor: 'rgba(0, 201, 255, 0.3)', borderColor: '#00C9FF', borderWidth: 2 },
+                    { label: p2, data: [d2.Average || 0, d2.StrikeRate || 0, b_rate_2, d2.Power || 0], backgroundColor: 'rgba(255, 75, 75, 0.3)', borderColor: '#ff4b4b', borderWidth: 2 }
+                ]
+            };
+            if (radarChartInstance) radarChartInstance.destroy();
+            radarChartInstance = new Chart(ctx, { type: 'radar', data: data, options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false, max: 120 } } } } });
+        }
+
+        function runAI(p1, d1, p2, d2) {
+            const terminal = document.getElementById('ai-terminal');
+            terminal.style.display = 'block';
+            const p1_bat = ((d1.Average || 0) * (d1.StrikeRate || 0)) / 100;
+            const p2_bowl = (d2.Wickets || 0) / ((d2.Economy || 1) + 0.1);
+
+            if ((d2.Wickets || 0) < 5) {
+                terminal.innerHTML = `⚠️ <b>SYSTEM HALT:</b> ${p2} lacks sufficient bowling data for a mathematical head-to-head simulation.`;
+            } else if ((d1.Runs || 0) < 100) {
+                terminal.innerHTML = `⚠️ <b>SYSTEM HALT:</b> ${p1} lacks sufficient batting data.`;
+            } else if (p1_bat > p2_bowl) {
+                terminal.innerHTML = `🏏 <b>AI PREDICTION: ${p1} DOMINATES</b><br><br>Analyzing trajectories, ${p1}'s aggression matrix overpowers ${p2}'s defensive economy.`;
+            } else {
+                terminal.innerHTML = `🥎 <b>AI PREDICTION: ${p2} DOMINATES</b><br><br>Analyzing trajectories, ${p2}'s wicket-taking probability restricts ${p1}.`;
+            }
+        }
+        window.onload = fetchDatabase;
+    </script>
+</body>
+</html>
