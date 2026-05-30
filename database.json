@@ -1,0 +1,6 @@
+{
+  "Virat Kohli": { "Role": "Batsman", "Runs": 8848, "Average": 49.15, "StrikeRate": 55.6, "Wickets": 0, "Economy": 4.20, "Power": 92 },
+  "Sachin Tendulkar": { "Role": "Batsman", "Runs": 15921, "Average": 53.78, "StrikeRate": 54.0, "Wickets": 46, "Economy": 3.52, "Power": 88 },
+  "Shane Warne": { "Role": "Bowler", "Runs": 3154, "Average": 17.32, "StrikeRate": 48.1, "Wickets": 708, "Economy": 2.65, "Power": 95 },
+  "Jasprit Bumrah": { "Role": "Bowler", "Runs": 212, "Average": 7.31, "StrikeRate": 51.2, "Wickets": 159, "Economy": 2.74, "Power": 90 }
+}
